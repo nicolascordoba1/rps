@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, paper, scissors</title>
+</head>
+<body>
+    <h1>ROCK, PAPER, SCISSORS!!!</h1>
+    <p>It's played in the console at the moment so be sure to press F12 to start playing</p>
+    <script>
+
+        let playerSelection = prompt('Choose your weapon, rock, paper, scissors?')
+
+        let computerSelection = computerPlay();
+        let counterPlayer = 0
+        let counterPC = 0
+
+
+        function computerPlay(){
+            const options = ['rock', 'paper', 'scissors']
+            const number = Math.floor(Math.random()*3);
+            return options[number]
+        }
+
+        function playRound(playerSelection, computerSelection) {
+
+            
+
+            if(playerSelection === 'rock' && computerSelection==='scissors'){
+
+                counterPlayer += 1;
+                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
+
+            } else if(playerSelection === 'paper' && computerSelection==='rock'){
+
+                counterPlayer += 1;
+                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
+
+            } else if(playerSelection === 'scissors' && computerSelection==='paper'){
+
+                counterPlayer += 1;
+                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
+
+            } else if(playerSelection === computerSelection){
+
+                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
+
+            } else{
+
+                counterPC += 1;
+                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
+            }
+            
+            game();
+        
+          }   
+
+        console.log(playerSelection, computerSelection)
+        console.log(playRound(playerSelection, computerSelection)) 
+
+        function game(){
+            //keeps record of the victories and announces the winner  
+            
+            while(counterPlayer<=5 || counterPC <=5){
+                playerSelection = prompt('Choose your weapon, rock, paper, scissors?')
+                computerSelection = computerPlay();
+                playRound(playerSelection, computerSelection)
+
+           }
+            return  console.log('Juego finalizado')
+            }
+
+    </script>
+</body>
+</html>
