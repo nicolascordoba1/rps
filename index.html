@@ -53,23 +53,26 @@
                 console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
             }
             
-            game();
+           
         
           }   
-
-        console.log(playerSelection, computerSelection)
-        console.log(playRound(playerSelection, computerSelection)) 
+         
+        game();
+        
 
         function game(){
             //keeps record of the victories and announces the winner  
-            
-            while(counterPlayer<=5 || counterPC <=5){
+            for(let i=0; i<5; i++){
+                console.log(`Tú elegiste ${playerSelection} y el PC eligió ${computerSelection}, van ${counterPlayer} a ${counterPC}`)
                 playerSelection = prompt('Choose your weapon, rock, paper, scissors?')
                 computerSelection = computerPlay();
                 playRound(playerSelection, computerSelection)
-
-           }
-            return  console.log('Juego finalizado')
+            }
+            if(counterPlayer > counterPC){
+                console.log('Se acabó, ganaste')
+            } else{
+                console.log('Ganó el PC')
+            }
             }
 
     </script>
