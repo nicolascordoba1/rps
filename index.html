@@ -5,76 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper, scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
+
     <h1>ROCK, PAPER, SCISSORS!!!</h1>
-    <p>It's played in the console at the moment so be sure to press F12 to start playing</p>
-    <script>
 
-        let playerSelection = prompt('Choose your weapon, rock, paper, scissors?')
+    <div class="botones">
 
-        let computerSelection = computerPlay();
-        let counterPlayer = 0
-        let counterPC = 0
-
-
-        function computerPlay(){
-            const options = ['rock', 'paper', 'scissors']
-            const number = Math.floor(Math.random()*3);
-            return options[number]
-        }
-
-        function playRound(playerSelection, computerSelection) {
-
+        <button class="choice" id="rock">
+            <div class="imagen">
+                <img src="./img/rock.png" alt="">
+            </div>
             
+            <div class="text">
+                 <p>rock</p>
+            </div>       
+        </button>
 
-            if(playerSelection === 'rock' && computerSelection==='scissors'){
+        <button class="choice" id="paper">
+            <div class="imagen">
+                <img src="./img/paper.png" alt="">
+            </div>
+            <div class="text">
+               <p>paper</p> 
+            </div>             
+        </button>
 
-                counterPlayer += 1;
-                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
+        <button class="choice" id="scissors">
+            <div class="imagen">
+                <img src="./img/scissors.png" alt="">
+            </div>
+            <div class="text">
+                <p>scissors</p>
+            </div>            
+        </button>
 
-            } else if(playerSelection === 'paper' && computerSelection==='rock'){
-
-                counterPlayer += 1;
-                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
-
-            } else if(playerSelection === 'scissors' && computerSelection==='paper'){
-
-                counterPlayer += 1;
-                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
-
-            } else if(playerSelection === computerSelection){
-
-                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
-
-            } else{
-
-                counterPC += 1;
-                console.log(`Los resultados van ${counterPlayer} y ${counterPC}`)
-            }
-            
-           
-        
-          }   
-         
-        game();
-        
-
-        function game(){
-            //keeps record of the victories and announces the winner  
-            for(let i=0; i<5; i++){
-                console.log(`Tú elegiste ${playerSelection} y el PC eligió ${computerSelection}, van ${counterPlayer} a ${counterPC}`)
-                playerSelection = prompt('Choose your weapon, rock, paper, scissors?')
-                computerSelection = computerPlay();
-                playRound(playerSelection, computerSelection)
-            }
-            if(counterPlayer > counterPC){
-                console.log('Se acabó, ganaste')
-            } else{
-                console.log('Ganó el PC')
-            }
-            }
-
-    </script>
+    </div>
+    
+   
+    <div class="contador"></div>
+    <div class="contenedor"></div>
 </body>
 </html>
