@@ -1,8 +1,9 @@
-const para = document.createElement('p')
-const div = document.querySelector('.contenedor')
-const contador = document.querySelector('.contador')
-const contadorText = document.createElement('p')
-const playAgain = document.createElement('button')
+const para = document.createElement('p');
+const div = document.querySelector('.contenedor');
+const contador = document.querySelector('.contador');
+const paraStatus = document.createElement('p');
+const contadorText = document.createElement('p');
+const playAgain = document.createElement('button');
 playAgain.innerText = 'Play Again';
 
 let counterPlayer = 0
@@ -14,7 +15,7 @@ function computerPlay(){
     return options[number]
 };
 
-
+contador.appendChild(paraStatus);
 let btn = document.querySelectorAll('.choice');
 
 
@@ -25,13 +26,8 @@ btn.forEach(choice => choice.addEventListener('click', ()=> {
     playerSelection = choice.innerText
     computerSelection = computerPlay()
 
-    // console.log(playerSelection, computerSelection) 
-
-
-    
-
-
-    
+    paraStatus.innerText = `You chose ${playerSelection} and the PC chose ${computerSelection}`;
+  
 }));
 
 function playRound(playerSelection, computerSelection) {
@@ -55,7 +51,7 @@ function playRound(playerSelection, computerSelection) {
         counterPC += 1;
         
     }
-    contadorText.innerText = `Los resultados van ${counterPlayer} para ti y ${counterPC} para el computador`;
+    contadorText.innerText = `Actual score: ${counterPlayer} for you and ${counterPC} for the PC`;
     contador.appendChild(contadorText)
 };
 
@@ -64,18 +60,22 @@ function game(){
         playRound(playerSelection, computerSelection)
     } 
     if(counterPC == 5){
-        para.innerText = 'Perdiste, gana el computador!';
+        para.innerText = 'You lose!, pc wins.';
         div.appendChild(para);
         div.appendChild(playAgain)
         playAgain.addEventListener('click', ()=>{
             document.location.reload(true)
         })
+        choice.removeEventListener('click', );
+
     } else if(counterPlayer == 5){
-        para.innerText = 'Felicitaciones, has ganado!';
+        
+        para.innerText = 'Congratulations!, You are the winner';
         div.appendChild(para);
         div.appendChild(playAgain)
         playAgain.addEventListener('click', ()=>{
             document.location.reload(true)
         })
+        choice.removeEventListener('click', );
     } 
 };
